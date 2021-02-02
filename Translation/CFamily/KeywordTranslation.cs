@@ -33,7 +33,7 @@ namespace OpenSpaceCodeGen.Translation.CFamily {
                 case EnumKeyword.If:
                     return NodeTranslator.Sequence("if (", 0,")");
                 case EnumKeyword.IfNot:
-                    return NodeTranslator.Sequence("if (!(",0,")");
+                    return NodeTranslator.Sequence("if (!(",0,"))");
                 case EnumKeyword.If2:
                 case EnumKeyword.If4:
                 case EnumKeyword.If8:
