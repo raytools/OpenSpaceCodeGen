@@ -4,7 +4,7 @@ using System.Text;
 using OpenSpaceCodeGen.AITypes;
 using OpenSpaceCodeGen.Nodes;
 
-namespace OpenSpaceCodeGen.Translation.CFamily {
+namespace OpenSpaceCodeGen.Translation.CBase {
 
     public static class KeywordTranslation{
 
@@ -25,7 +25,7 @@ namespace OpenSpaceCodeGen.Translation.CFamily {
             return actions.ToArray();
         }
 
-        public static NodeTranslator TranslateKeyword(NodeKeyWord node, CodeGenerator gen)
+        public static NodeTranslator TranslateKeyword(NodeKeyWord node, CodeGenerator gen, LanguageTranslationCBase translation)
         {
             int randomizer;
             var keyword = node.GetKeyword(gen);
@@ -52,9 +52,11 @@ namespace OpenSpaceCodeGen.Translation.CFamily {
                     randomizer = int.Parse(keyword.ToString().Substring(2));
                     return NodeTranslator.Sequence($"if (globalRandomizer%{randomizer}==0 && !(","))");
                 case EnumKeyword.IfDebug:
-                    return NodeTranslator.Sequence(IndentedChildren("if (false /* debug */)"));
+                    return NodeTranslator.Sequence($"{translation.IfDefSyntax}DEBUG",TranslateAction.NextLine,
+                        TranslateAction.Indent, TranslateAction.VisitChildren(), TranslateAction.Unindent, translation.EndIfDefSyntax, TranslateAction.NextLine);
                 case EnumKeyword.IfNotU64:
-                    return NodeTranslator.Sequence(IndentedChildren("if (true /* NOT U64 */)"));
+                    return NodeTranslator.Sequence($"{translation.IfNotDefSyntax}U64", TranslateAction.NextLine,
+                        TranslateAction.Indent, TranslateAction.VisitChildren(), TranslateAction.Unindent,translation.EndIfDefSyntax, TranslateAction.NextLine);
                 case EnumKeyword.Then:
                     return NodeTranslator.Sequence(IndentedChildren());
                 case EnumKeyword.Else:

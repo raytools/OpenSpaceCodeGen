@@ -4,7 +4,7 @@ using System.Text;
 using OpenSpaceCodeGen.AITypes;
 using OpenSpaceCodeGen.Nodes;
 
-namespace OpenSpaceCodeGen.Translation.CFamily {
+namespace OpenSpaceCodeGen.Translation.CBase {
     public static class FunctionTranslation {
 
         public static NodeTranslator TranslateFunction(CodeGenerator gen, NodeFunction node)

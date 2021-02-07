@@ -1,4 +1,5 @@
 ﻿using OpenSpaceCodeGen.Nodes;
+using OpenSpaceCodeGen.Nodes.Generic;
 
 namespace OpenSpaceCodeGen.Translation.Raw
 {
@@ -7,6 +8,9 @@ namespace OpenSpaceCodeGen.Translation.Raw
         public override NodeTranslator BasicTranslator(CodeGenerator gen, BasicNode node) =>
             NodeTranslator.RawTranslator(node, gen);
         public override NodeTranslator KeywordTranslator(CodeGenerator gen, NodeKeyWord node) =>
+            NodeTranslator.RawTranslator(node, gen);
+
+        public override NodeTranslator VectorTranslator(CodeGenerator gen, NodeVector node) =>
             NodeTranslator.RawTranslator(node, gen);
         public override NodeTranslator OperatorTranslator(CodeGenerator gen, NodeOperator node) =>
             NodeTranslator.RawTranslator(node, gen);

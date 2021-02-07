@@ -1,4 +1,6 @@
-﻿namespace OpenSpaceCodeGen.Nodes {
-    public class NodeEnvironmentRef : BasicNode {
+﻿using OpenSpaceCodeGen.Nodes.Generic;
+
+namespace OpenSpaceCodeGen.Nodes {
+    public class NodeEnvironmentRef : ReferenceNode {
     }
 }

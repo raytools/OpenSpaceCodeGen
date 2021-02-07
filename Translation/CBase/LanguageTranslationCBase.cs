@@ -1,9 +1,10 @@
 ﻿using System;
 using OpenSpaceCodeGen.Nodes;
+using OpenSpaceCodeGen.Nodes.Generic;
 
-namespace OpenSpaceCodeGen.Translation.CFamily
+namespace OpenSpaceCodeGen.Translation.CBase
 {
-    public class LanguageTranslationCFamily : LanguageTranslation
+    public abstract class LanguageTranslationCBase : LanguageTranslation
     {
         private static NodeTranslator BasicTranslateAction(CodeGenerator gen, Node node) => NodeTranslator.Sequence(
             TranslateAction.String(node.ToString(gen)),
@@ -19,7 +20,7 @@ namespace OpenSpaceCodeGen.Translation.CFamily
         public override NodeTranslator RealTranslator(CodeGenerator gen, NodeReal node) => BasicTranslateAction(gen, node);
         public override NodeTranslator NullTranslator(CodeGenerator gen, NodeNull node) => NodeTranslator.Sequence("null");
 
-        public override NodeTranslator KeywordTranslator(CodeGenerator gen, NodeKeyWord node) => KeywordTranslation.TranslateKeyword(node, gen);
+        public override NodeTranslator KeywordTranslator(CodeGenerator gen, NodeKeyWord node) => KeywordTranslation.TranslateKeyword(node, gen, this);
 
         public override NodeTranslator OperatorTranslator(CodeGenerator gen, NodeOperator node) => OperatorTranslation.TranslateOperator(node, gen);
 
@@ -31,5 +32,8 @@ namespace OpenSpaceCodeGen.Translation.CFamily
         public override NodeTranslator ProcedureTranslator(CodeGenerator gen, NodeProcedure procedureNode) =>
             NodeTranslator.Sequence(procedureNode.ToString(gen)+"(",TranslateAction.VisitChildren(","),");", TranslateAction.NextLine);
 
+        public abstract string IfDefSyntax { get; }
+        public abstract string IfNotDefSyntax { get; }
+        public abstract string EndIfDefSyntax { get; }
     }
 }

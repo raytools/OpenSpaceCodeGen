@@ -1,7 +1,6 @@
-﻿using System;
-using OpenSpaceCodeGen.Translation;
+﻿using OpenSpaceCodeGen.Translation;
 
-namespace OpenSpaceCodeGen.Nodes {
+namespace OpenSpaceCodeGen.Nodes.Generic {
     public class BasicNode : Node {
 
         protected override NodeTranslator GetTranslator(CodeGenerator gen)

@@ -42,19 +42,19 @@ namespace OpenSpaceCodeGen.Translation {
         {
             string indent = new string(' ', node.depth*2);
 
-#if DEBUG
+#if DEBUG_TRANSLATION
             Debug.WriteLine($"{indent}{node.GetType().Name} {node.ToString(gen)}");
             Debug.WriteLine(indent+"{");
 #endif
 
             foreach (var action in Actions) {
-#if DEBUG
+#if DEBUG_TRANSLATION
                 Debug.WriteLine($"{indent}  ({gen.Indentation}){action}");
 #endif
                 action.Invoke(node, gen);
             }
 
-#if DEBUG
+#if DEBUG_TRANSLATION
             Debug.WriteLine(indent+"}");
 #endif
         }

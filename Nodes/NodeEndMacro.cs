@@ -1,4 +1,15 @@
-﻿namespace OpenSpaceCodeGen.Nodes {
-    public class NodeEndMacro : BasicNode {
+﻿using OpenSpaceCodeGen.Translation;
+
+namespace OpenSpaceCodeGen.Nodes {
+    public class NodeEndMacro : Node {
+        protected override NodeTranslator GetTranslator(CodeGenerator gen)
+        {
+            return NodeTranslator.Sequence();
+        }
+
+        public override string ToString(CodeGenerator gen)
+        {
+            return this.GetType().Name;
+        }
     }
 }

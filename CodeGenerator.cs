@@ -7,8 +7,9 @@ using OpenSpaceCodeGen.Translation;
 namespace OpenSpaceCodeGen {
     public class CodeGenerator
     {
-        public AITypes.AITypes Types;
-        public LanguageTranslation Translation;
+        public readonly AITypes.AITypes Types;
+        public readonly LanguageTranslation Translation;
+        public readonly ReferenceResolver ReferenceResolver;
 
         private int indentation = 0;
         public int Indentation
@@ -65,10 +66,11 @@ namespace OpenSpaceCodeGen {
 
         private CodeGenerator() { }
 
-        public CodeGenerator(AITypes.AITypes types, LanguageTranslation translation)
+        public CodeGenerator(AITypes.AITypes types, LanguageTranslation translation, ReferenceResolver referenceResolver = null)
         {
             Types = types;
             Translation = translation;
+            ReferenceResolver = referenceResolver ?? ReferenceResolver.DummyResolver;
 
             NextLine();
         }

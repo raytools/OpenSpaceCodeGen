@@ -1,15 +1,16 @@
 ﻿using OpenSpaceCodeGen.Translation;
 
-namespace OpenSpaceCodeGen.Nodes {
-    public class NodeModuleRef : Node {
+namespace OpenSpaceCodeGen.Nodes.Generic {
+    public class ReferenceNode : Node {
+
         protected override NodeTranslator GetTranslator(CodeGenerator gen)
         {
-            return NodeTranslator.Sequence(this.ToString(gen));
+            return NodeTranslator.Sequence(gen.ReferenceResolver.ResolveFunc.Invoke(this));
         }
 
         public override string ToString(CodeGenerator gen)
         {
-            return param.ToString();
+            return this.GetType().Name;
         }
     }
 }

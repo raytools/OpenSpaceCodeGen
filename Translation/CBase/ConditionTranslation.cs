@@ -1,7 +1,7 @@
 ﻿using OpenSpaceCodeGen.AITypes;
 using OpenSpaceCodeGen.Nodes;
 
-namespace OpenSpaceCodeGen.Translation.CFamily
+namespace OpenSpaceCodeGen.Translation.CBase
 {
     public static class ConditionTranslation
     {
