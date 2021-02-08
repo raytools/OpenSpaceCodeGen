@@ -7,7 +7,7 @@ namespace OpenSpaceCodeGen {
         public static void Main(string[] args)
         {
 
-            string filename = "YLT_Init.0.osb";
+            string filename = "BNT_NewPatin.0.osb";
 
             if (args.Length > 0) {
                 filename = args[0];
@@ -26,7 +26,8 @@ namespace OpenSpaceCodeGen {
             //Console.WriteLine("RAW");
             //Console.WriteLine(generatorRaw.Result);
             Console.WriteLine("C-SHARP");
-            Console.WriteLine(generatorCSharp.Result);
+            //Console.WriteLine(generatorCSharp.Result);
+            Console.WriteLine(generatorCSharp.GetDebugHTML());
 
             //PythonScriptCode
 

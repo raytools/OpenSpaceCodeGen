@@ -43,7 +43,7 @@ namespace OpenSpaceCodeGen.Translation.CBase {
                     return NodeTranslator.Sequence("((", 0, ") ? ", childCast1, 1, " : ", childCast2, 2, ")");
 
                 default:
-                    return NodeTranslator.Sequence(node.ToString(gen), "(", TranslateAction.VisitChildren(","), ")");
+                    return NodeTranslator.Sequence(node.ToString(gen), "(", TranslateAction.VisitChildren(", "), ")");
             }
 
         }

@@ -1,6 +1,6 @@
 ﻿using OpenSpaceCodeGen.Nodes.Generic;
 
 namespace OpenSpaceCodeGen.Nodes {
-    public class NodeSubRoutine : BasicNode {
+    public class NodeSubRoutine : ReferenceNode {
     }
 }

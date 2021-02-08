@@ -77,6 +77,28 @@ namespace OpenSpaceCodeGen {
 
         public string Result => string.Join(Environment.NewLine, Lines.Select(l => l.ToString()));
 
+        public string GetDebugHTML()
+        {
+            string html = "<html><head><style>body {font-family: Courier New;}</style></head><body>";
+
+            foreach (var l in Lines) {
+
+                for (int r = 0; r < l.Indent * 2; r++) {
+                    html += "&nbsp;";
+                }
+
+                foreach (var e in l.Elements) {
+                    html += $"<span title=\"Node @0x{e.Node.Offset:X} {e.Node.ToString(this)}, param {e.Node.param}\">{e.String}</span>";
+                }
+
+                html += "<br>";
+            }
+
+            html += "</body></html>";
+
+            return html;
+        }
+
         public void Append(Node node, string str)
         {
             CurrentLine.Elements.Add(new CodeLine.LineElement(node, str));

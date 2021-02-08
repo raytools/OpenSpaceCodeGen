@@ -10,7 +10,7 @@ namespace OpenSpaceCodeGen {
 
         private Script() { }
 
-        public static Script FromBytes(NodeSettings settings, AITypes.AITypes types, byte[] bytes)
+        public static Script FromBytes(NodeSettings settings, AITypes.AITypes types, byte[] bytes, int offsetBase = 0)
         {
             Script script = new Script();
 
@@ -20,7 +20,7 @@ namespace OpenSpaceCodeGen {
                 byte[] nodeBytes = new byte[settings.sizeOfNode];
                 Array.Copy(bytes, i, nodeBytes, 0, nodeBytes.Length);
                 
-                script.Nodes.Add(Node.FromBytes(settings, types, nodeBytes));
+                script.Nodes.Add(Node.FromBytes(settings, types, nodeBytes, i+offsetBase));
             }
 
             // Set parents and children by indent

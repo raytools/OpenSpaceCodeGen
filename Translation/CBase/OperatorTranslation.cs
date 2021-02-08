@@ -9,7 +9,7 @@ namespace OpenSpaceCodeGen.Translation.CBase
     public static class OperatorTranslation
     {
         private static NodeTranslator SimpleOperator(string op) => NodeTranslator.Sequence("(", 0, op, 1, ")");
-        private static NodeTranslator AffectOperator(string op) => NodeTranslator.Sequence(0, op, 1);
+        private static NodeTranslator AffectOperator(string op) => NodeTranslator.Sequence(0, $" {op} ", 1, ";", TranslateAction.NextLine);
 
         public static NodeTranslator TranslateOperator(NodeOperator node, CodeGenerator generator)
         {

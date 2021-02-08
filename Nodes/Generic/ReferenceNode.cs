@@ -5,7 +5,11 @@ namespace OpenSpaceCodeGen.Nodes.Generic {
 
         protected override NodeTranslator GetTranslator(CodeGenerator gen)
         {
-            return NodeTranslator.Sequence(gen.ReferenceResolver.ResolveFunc.Invoke(this));
+            if (this is NodeSubRoutine) {
+                return NodeTranslator.Sequence(gen.ReferenceResolver.ResolveFunc.Invoke(this), ";", TranslateAction.NextLine);
+            } else {
+                return NodeTranslator.Sequence(gen.ReferenceResolver.ResolveFunc.Invoke(this));
+            }
         }
 
         public override string ToString(CodeGenerator gen)

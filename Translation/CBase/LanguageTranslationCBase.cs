@@ -30,7 +30,7 @@ namespace OpenSpaceCodeGen.Translation.CBase
         public override NodeTranslator FunctionTranslator(CodeGenerator gen, NodeFunction node) => FunctionTranslation.TranslateFunction(gen, node);
 
         public override NodeTranslator ProcedureTranslator(CodeGenerator gen, NodeProcedure procedureNode) =>
-            NodeTranslator.Sequence(procedureNode.ToString(gen)+"(",TranslateAction.VisitChildren(","),");", TranslateAction.NextLine);
+            NodeTranslator.Sequence(procedureNode.ToString(gen)+"(",TranslateAction.VisitChildren(", "),");", TranslateAction.NextLine);
 
         public abstract string IfDefSyntax { get; }
         public abstract string IfNotDefSyntax { get; }

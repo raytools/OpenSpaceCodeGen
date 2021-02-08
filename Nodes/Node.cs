@@ -12,12 +12,13 @@ namespace OpenSpaceCodeGen.Nodes {
 
         public Node Parent;
         public List<Node> Children = new List<Node>();
+        public int Offset;
 
         protected abstract NodeTranslator GetTranslator(CodeGenerator gen);
 
         protected Node() { }
 
-        public static Node FromBytes(NodeSettings settings, AITypes.AITypes types, byte[] nodeBytes)
+        public static Node FromBytes(NodeSettings settings, AITypes.AITypes types, byte[] nodeBytes, int offset)
         {
             var typeID = nodeBytes[settings.indexOfType];
             var type = types.GetNodeType(typeID);
@@ -129,6 +130,7 @@ namespace OpenSpaceCodeGen.Nodes {
                     throw new ArgumentOutOfRangeException();
             }
 
+            node.Offset = offset;
             node.param = BitConverter.ToInt32(nodeBytes, settings.indexOfParam);
             node.depth = nodeBytes[settings.indexOfIndent];
             node.typeID = typeID;
