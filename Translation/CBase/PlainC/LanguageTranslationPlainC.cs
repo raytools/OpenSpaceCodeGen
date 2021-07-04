@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using OpenSpaceCodeGen.AITypes;
 using OpenSpaceCodeGen.Nodes;
 
 namespace OpenSpaceCodeGen.Translation.CBase.PlainC {
@@ -15,5 +16,9 @@ namespace OpenSpaceCodeGen.Translation.CBase.PlainC {
         {
             return NodeTranslator.Sequence("Vector3(", 0, ",", 1, ",", 2, ")");
         }
+
+        public override string FileExtension => "c";
+        
+        public override void PostTranslationStep(AIType aiType, string outputDirectory) { }
     }
 }

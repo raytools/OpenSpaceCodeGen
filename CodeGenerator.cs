@@ -1,13 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using OpenSpaceCodeGen.AIModels;
+using OpenSpaceCodeGen.AITypes;
 using OpenSpaceCodeGen.Nodes;
 using OpenSpaceCodeGen.Translation;
 
 namespace OpenSpaceCodeGen {
     public class CodeGenerator
     {
-        public readonly AITypes.AITypes Types;
+        public readonly AIType Type;
         public readonly LanguageTranslation Translation;
         public readonly ReferenceResolver ReferenceResolver;
 
@@ -57,7 +59,7 @@ namespace OpenSpaceCodeGen {
 
             public override string ToString()
             {
-                return new string(' ',Indent * 2) + string.Join(string.Empty, Elements.Select(e => e.ToString()));
+                return new string(' ',Indent * LanguageTranslation.IndentSize) + string.Join(string.Empty, Elements.Select(e => e.ToString()));
             }
         }
 
@@ -66,16 +68,34 @@ namespace OpenSpaceCodeGen {
 
         private CodeGenerator() { }
 
-        public CodeGenerator(AITypes.AITypes types, LanguageTranslation translation, ReferenceResolver referenceResolver = null)
+        public CodeGenerator(AIType type, LanguageTranslation translation, ReferenceResolver referenceResolver = null)
         {
-            Types = types;
+            Type = type;
             Translation = translation;
             ReferenceResolver = referenceResolver ?? ReferenceResolver.DummyResolver;
 
             NextLine();
         }
 
-        public string Result => string.Join(Environment.NewLine, Lines.Select(l => l.ToString()));
+        public void TrimEmptyLines()
+        {
+            while (string.IsNullOrWhiteSpace(Lines.First().ToString())) {
+                Lines.RemoveAt(0);
+            }
+
+            while (string.IsNullOrWhiteSpace(Lines.Last().ToString())) {
+                Lines.RemoveAt(Lines.Count - 1);
+            }
+        }
+
+        public string Result
+        {
+            get
+            {
+                TrimEmptyLines();
+                return string.Join(Environment.NewLine, Lines.Select(l => l.ToString()));
+            }
+        }
 
         public string GetDebugHTML()
         {
@@ -83,7 +103,7 @@ namespace OpenSpaceCodeGen {
 
             foreach (var l in Lines) {
 
-                for (int r = 0; r < l.Indent * 2; r++) {
+                for (int r = 0; r < l.Indent * LanguageTranslation.IndentSize; r++) {
                     html += "&nbsp;";
                 }
 

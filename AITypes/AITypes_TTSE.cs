@@ -1,7 +1,7 @@
 ﻿namespace OpenSpaceCodeGen.AITypes {
-    public partial class AITypes {
+    public partial class AIType {
 
-        public static AITypes TTSE = new AITypes()
+        public static AIType TTSE = new AIType()
         {
             #region Node types
             NodeTypes = new NodeType[] {

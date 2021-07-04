@@ -1,10 +1,19 @@
-﻿namespace OpenSpaceCodeGen {
+﻿namespace OpenSpaceCodeGen.Config {
+
     public class NodeSettings
     {
         public byte sizeOfNode;
         public byte indexOfParam;
         public byte indexOfIndent;
         public byte indexOfType;
+
+        public static NodeSettings SettingsRaymapExport = new NodeSettings()
+        {
+            sizeOfNode = 8,
+            indexOfParam = 0,
+            indexOfIndent = 6,
+            indexOfType = 7,
+        };
 
         public static NodeSettings SettingsDefault = new NodeSettings()
         {

@@ -1,17 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using OpenSpaceCodeGen.AITypes;
+using OpenSpaceCodeGen.Config;
 using OpenSpaceCodeGen.Nodes;
+using OpenSpaceCodeGen.Translation;
 
-namespace OpenSpaceCodeGen {
+namespace OpenSpaceCodeGen.AIModels {
     public class Script
     {
         public List<Node> Nodes;
 
         private Script() { }
 
-        public static Script FromBytes(NodeSettings settings, AITypes.AITypes types, byte[] bytes, int offsetBase = 0)
+        public static Script FromBytes(GameConfig gameConfig, byte[] bytes, int offsetBase = 0)
         {
+            var settings = gameConfig.NodeSettings;
+            var type = gameConfig.AITypes;
+
             Script script = new Script();
 
             script.Nodes = new List<Node>();
@@ -20,7 +26,7 @@ namespace OpenSpaceCodeGen {
                 byte[] nodeBytes = new byte[settings.sizeOfNode];
                 Array.Copy(bytes, i, nodeBytes, 0, nodeBytes.Length);
                 
-                script.Nodes.Add(Node.FromBytes(settings, types, nodeBytes, i+offsetBase));
+                script.Nodes.Add(Node.FromBytes(settings, type, nodeBytes, i+offsetBase));
             }
 
             // Set parents and children by indent
@@ -46,6 +52,22 @@ namespace OpenSpaceCodeGen {
             script.Nodes = script.Nodes.Where(n => n.Parent == null).ToList();
 
             return script;
+        }
+
+        public string Translate(GameConfig config, LanguageTranslation.TranslationMode translationMode)
+        {
+            CodeGenerator v = new CodeGenerator(config.AITypes, LanguageTranslation.TranslationFromMode(translationMode));
+            v.VisitScript(this);
+
+            return v.Result;
+        }
+
+        public string TranslateHTML(GameConfig config, LanguageTranslation.TranslationMode translationMode)
+        {
+            CodeGenerator v = new CodeGenerator(config.AITypes, LanguageTranslation.TranslationFromMode(translationMode));
+            v.VisitScript(this);
+
+            return v.GetDebugHTML();
         }
     }
 }

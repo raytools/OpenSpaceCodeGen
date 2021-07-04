@@ -12,7 +12,7 @@ namespace OpenSpaceCodeGen.Nodes {
 
         public EnumOperator GetOperator(CodeGenerator generator)
         {
-            return generator.Types.OperatorTable[param];
+            return generator.Type.OperatorTable[param];
         }
 
         public override string ToString(CodeGenerator generator)

@@ -12,7 +12,7 @@ namespace OpenSpaceCodeGen.Nodes {
 
         public EnumKeyword GetKeyword(CodeGenerator generator)
         {
-            return generator.Types.KeywordTable[param];
+            return generator.Type.KeywordTable[param];
         }
 
         public override string ToString(CodeGenerator generator)

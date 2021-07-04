@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using OpenSpaceCodeGen.AITypes;
+using OpenSpaceCodeGen.Config;
 using OpenSpaceCodeGen.Translation;
 
 namespace OpenSpaceCodeGen.Nodes {
@@ -18,7 +20,7 @@ namespace OpenSpaceCodeGen.Nodes {
 
         protected Node() { }
 
-        public static Node FromBytes(NodeSettings settings, AITypes.AITypes types, byte[] nodeBytes, int offset)
+        public static Node FromBytes(NodeSettings settings, AIType types, byte[] nodeBytes, int offset)
         {
             var typeID = nodeBytes[settings.indexOfType];
             var type = types.GetNodeType(typeID);
@@ -138,9 +140,9 @@ namespace OpenSpaceCodeGen.Nodes {
             return node;
         }
 
-        public NodeType GetNodeType(AITypes.AITypes types)
+        public NodeType GetNodeType(AIType type)
         {
-            return types.GetNodeType(this.typeID);
+            return type.GetNodeType(this.typeID);
         }
 
         public void Visit(CodeGenerator gen)

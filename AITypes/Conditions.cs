@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace OpenSpaceCodeGen.AITypes {
+﻿namespace OpenSpaceCodeGen.AITypes {
     public static class Conditions
     {
         public const string Cond_And = "Cond_And";

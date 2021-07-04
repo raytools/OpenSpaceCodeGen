@@ -1,4 +1,6 @@
-﻿using OpenSpaceCodeGen.Nodes;
+﻿using System.Collections.Generic;
+using OpenSpaceCodeGen.AITypes;
+using OpenSpaceCodeGen.Nodes;
 using OpenSpaceCodeGen.Nodes.Generic;
 using OpenSpaceCodeGen.Translation.CBase;
 using OpenSpaceCodeGen.Translation.CBase.CSharp;
@@ -22,9 +24,30 @@ namespace OpenSpaceCodeGen.Translation
         public abstract NodeTranslator ProcedureTranslator(CodeGenerator gen, NodeProcedure node);
         public abstract NodeTranslator FunctionTranslator(CodeGenerator gen, NodeFunction node);
 
+        public abstract string FileExtension { get; }
+        public abstract void PostTranslationStep(AIType aiType, string outputDirectory);
+
         public static LanguageTranslation CSharp = new LanguageTranslationPlainC();
         public static LanguageTranslation Raw = new LanguageTranslationRaw();
 
 
+        public enum TranslationMode {
+            CSharp,
+            Raw,
+        }
+
+        private static Dictionary<TranslationMode, LanguageTranslation> _mapping =
+            new Dictionary<TranslationMode, LanguageTranslation>()
+            {
+                {TranslationMode.CSharp, CSharp},
+                {TranslationMode.Raw, Raw},
+            };
+
+        public static LanguageTranslation TranslationFromMode(TranslationMode mode) => _mapping[mode];
+
+        /// <summary>
+        /// TODO: add a configuration item + command line option for IndentSize
+        /// </summary>
+        public const int IndentSize = 4;
     }
 }

@@ -11,7 +11,7 @@ namespace OpenSpaceCodeGen.Nodes {
 
         public override string ToString(CodeGenerator generator)
         {
-            return generator.Types.MetaActionTable[param];
+            return generator.Type.MetaActionTable[param];
         }
     }
 }

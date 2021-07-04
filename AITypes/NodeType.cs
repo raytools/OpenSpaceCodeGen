@@ -1,4 +1,4 @@
-﻿namespace OpenSpaceCodeGen {
+﻿namespace OpenSpaceCodeGen.AITypes {
 
     public enum NodeType {
         Unknown,

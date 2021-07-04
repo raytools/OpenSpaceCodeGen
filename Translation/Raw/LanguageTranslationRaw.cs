@@ -1,4 +1,5 @@
-﻿using OpenSpaceCodeGen.Nodes;
+﻿using OpenSpaceCodeGen.AITypes;
+using OpenSpaceCodeGen.Nodes;
 using OpenSpaceCodeGen.Nodes.Generic;
 
 namespace OpenSpaceCodeGen.Translation.Raw
@@ -30,5 +31,9 @@ namespace OpenSpaceCodeGen.Translation.Raw
             NodeTranslator.RawTranslator(node, gen);
         public override NodeTranslator FunctionTranslator(CodeGenerator gen, NodeFunction node) =>
             NodeTranslator.RawTranslator(node, gen);
+
+        public override string FileExtension => "txt";
+
+        public override void PostTranslationStep(AIType aiType, string outputDirectory) { }
     }
 }

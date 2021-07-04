@@ -1,7 +1,7 @@
 ﻿namespace OpenSpaceCodeGen.AITypes {
-    public partial class AITypes {
+    public partial class AIType {
 
-        public static AITypes Revolution = new AITypes()
+        public static AIType Revolution = new AIType()
         {
             #region Keywords
             KeywordTable = new EnumKeyword[] {

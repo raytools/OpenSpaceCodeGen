@@ -10,7 +10,7 @@ namespace OpenSpaceCodeGen.Nodes {
 
         public override string ToString(CodeGenerator generator)
         {
-            return generator.Types.FieldTable[param];
+            return generator.Type.FieldTable[param];
         }
     }
 }
