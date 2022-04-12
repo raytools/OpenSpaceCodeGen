@@ -12,6 +12,7 @@ namespace OpenSpaceCodeGen {
         public readonly AIType Type;
         public readonly LanguageTranslation Translation;
         public readonly ReferenceResolver ReferenceResolver;
+        public readonly TranslationContext Context;
 
         private int indentation = 0;
         public int Indentation
@@ -65,14 +66,18 @@ namespace OpenSpaceCodeGen {
 
         private List<CodeLine> Lines = new List<CodeLine>();
         private CodeLine CurrentLine => Lines.Last();
+        public AIModel AIModel { get; }
 
         private CodeGenerator() { }
 
-        public CodeGenerator(AIType type, LanguageTranslation translation, ReferenceResolver referenceResolver = null)
+        public CodeGenerator(AIType type, LanguageTranslation translation, TranslationContext context,
+            ReferenceResolver referenceResolver = null, AIModel aiModel = null)
         {
             Type = type;
             Translation = translation;
+            Context = context;
             ReferenceResolver = referenceResolver ?? ReferenceResolver.DummyResolver;
+            AIModel = aiModel;
 
             NextLine();
         }
@@ -124,7 +129,12 @@ namespace OpenSpaceCodeGen {
             CurrentLine.Elements.Add(new CodeLine.LineElement(node, str));
         }
 
-        public void NextLine()
+        public void RemoveLastLine(Node node)
+        {
+           Lines.RemoveAt(Lines.Count-1);
+        }
+
+      public void NextLine()
         {
             Lines.Add(new CodeLine(Indentation));
         }

@@ -54,17 +54,22 @@ namespace OpenSpaceCodeGen.AIModels {
             return script;
         }
 
-        public string Translate(GameConfig config, LanguageTranslation.TranslationMode translationMode)
+        public string Translate(GameConfig config, TranslationContext context,
+            LanguageTranslation.TranslationMode translationMode, AIModel model = null)
         {
-            CodeGenerator v = new CodeGenerator(config.AITypes, LanguageTranslation.TranslationFromMode(translationMode));
+            var translation = LanguageTranslation.TranslationFromMode(translationMode);
+
+            CodeGenerator v = new CodeGenerator(config.AITypes, LanguageTranslation.TranslationFromMode(translationMode), context, translation.ResolverFromPointerMap(context, model), model);
             v.VisitScript(this);
 
             return v.Result;
         }
 
-        public string TranslateHTML(GameConfig config, LanguageTranslation.TranslationMode translationMode)
+        public string TranslateHTML(GameConfig config, TranslationContext context, LanguageTranslation.TranslationMode translationMode, AIModel model = null)
         {
-            CodeGenerator v = new CodeGenerator(config.AITypes, LanguageTranslation.TranslationFromMode(translationMode));
+            var translation = LanguageTranslation.TranslationFromMode(translationMode);
+
+            CodeGenerator v = new CodeGenerator(config.AITypes, LanguageTranslation.TranslationFromMode(translationMode), context, translation.ResolverFromPointerMap(context, model), model);
             v.VisitScript(this);
 
             return v.GetDebugHTML();

@@ -16,7 +16,8 @@ namespace OpenSpaceCodeGen.Nodes {
         public List<Node> Children = new List<Node>();
         public int Offset;
 
-        protected abstract NodeTranslator GetTranslator(CodeGenerator gen);
+        public abstract NodeTranslator GetTranslator(CodeGenerator gen);
+        protected virtual void UpdateTypeHints(CodeGenerator gen) { }
 
         protected Node() { }
 
@@ -128,6 +129,8 @@ namespace OpenSpaceCodeGen.Nodes {
                     break;
                 case NodeType.LightInfoRef: node = new NodeLightInfoRef();
                     break;
+                case NodeType.Unknown: node = new NodeUnknown();
+                    break;
                 default:
                     throw new ArgumentOutOfRangeException();
             }
@@ -148,6 +151,9 @@ namespace OpenSpaceCodeGen.Nodes {
         public void Visit(CodeGenerator gen)
         {
             GetTranslator(gen).Translate(this, gen);
+            if (gen.AIModel != null) {
+                UpdateTypeHints(gen);
+            }
         }
 
         public abstract string ToString(CodeGenerator gen);

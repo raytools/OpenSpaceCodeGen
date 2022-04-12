@@ -1111,6 +1111,38 @@
             },
             #endregion
 
+            #region DsgVar Types
+            DsgVarTypeTable = new DsgVarType[] {
+                DsgVarType.Boolean,
+                DsgVarType.Byte,
+                DsgVarType.UByte, // Unsigned
+                DsgVarType.Short,
+                DsgVarType.UShort, // Unsigned
+                DsgVarType.Int,
+                DsgVarType.UInt, // Unsigned
+                DsgVarType.Float,
+                DsgVarType.WayPoint,
+                DsgVarType.Perso,
+                DsgVarType.List,
+                DsgVarType.Vector,
+                DsgVarType.Comport,
+                DsgVarType.Action,
+                DsgVarType.Text,
+                DsgVarType.GameMaterial,
+                DsgVarType.Caps, // Capabilities
+                DsgVarType.Graph,
+                DsgVarType.PersoArray,
+                DsgVarType.VectorArray,
+                DsgVarType.FloatArray,
+                DsgVarType.IntegerArray,
+                DsgVarType.WayPointArray,
+                DsgVarType.TextArray,
+                DsgVarType.None
+                // 24, the above, seems to be an array on 3DS. Doesn't seem to be treated at all on DS
+                //24 on PC is DsgVarInfoEntry.DsgVarType.SuperObject and input on iOS.
+            },
+            #endregion
+
             #region Node types
             NodeTypes = new NodeType[] {
                 NodeType.KeyWord, // 0

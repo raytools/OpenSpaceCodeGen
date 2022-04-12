@@ -1,4 +1,5 @@
-﻿using OpenSpaceCodeGen.AITypes;
+﻿using OpenSpaceCodeGen.AIModels;
+using OpenSpaceCodeGen.AITypes;
 using OpenSpaceCodeGen.Nodes;
 using OpenSpaceCodeGen.Nodes.Generic;
 
@@ -31,9 +32,14 @@ namespace OpenSpaceCodeGen.Translation.Raw
             NodeTranslator.RawTranslator(node, gen);
         public override NodeTranslator FunctionTranslator(CodeGenerator gen, NodeFunction node) =>
             NodeTranslator.RawTranslator(node, gen);
+        public override NodeTranslator SubroutineTranslator(CodeGenerator gen, NodeSubRoutine node) => 
+            NodeTranslator.RawTranslator(node, gen);
+        public override NodeTranslator ReferenceTranslator(CodeGenerator gen, ReferenceNode node) =>
+            NodeTranslator.RawTranslator(node, gen);
 
+        public override string StringQuoteCharacter => "\"";
         public override string FileExtension => "txt";
 
-        public override void PostTranslationStep(AIType aiType, string outputDirectory) { }
+        public override void PostTranslationStep(AIType aiType, TranslationContext context, string outputDirectory) { }
     }
 }

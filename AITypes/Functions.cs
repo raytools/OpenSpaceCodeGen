@@ -4,28 +4,28 @@ using System.Text;
 
 namespace OpenSpaceCodeGen.AITypes {
     public static class Functions {
-        public const string Func_Int = "Func_Int";
-        public const string Func_RandomInt = "Func_RandomInt";
-        public const string Func_Real = "Func_Real";
-        public const string Func_Sinus = "Func_Sinus";
-        public const string Func_Cosinus = "Func_Cosinus";
-        public const string Func_Square = "Func_Square";
-        public const string Func_SquareRoot = "Func_SquareRoot";
-        public const string Func_RandomReal = "Func_RandomReal";
-        public const string Func_MinimumReal = "Func_MinimumReal";
-        public const string Func_MaximumReal = "Func_MaximumReal";
-        public const string Func_DegreeToRadian = "Func_DegreeToRadian";
-        public const string Func_RadianToDegree = "Func_RadianToDegree";
-        public const string Func_AbsoluteValue = "Func_AbsoluteValue";
-        public const string Func_LimitRealInRange = "Func_LimitRealInRange";
-        public const string Func_Sign = "Func_Sign";
-        public const string Func_Cube = "Func_Cube";
-        public const string Func_Modulo = "Func_Modulo";
-        public const string Func_TernInf = "Func_TernInf";
-        public const string Func_TernSup = "Func_TernSup";
-        public const string Func_TernEq = "Func_TernEq";
-        public const string Func_TernInfEq = "Func_TernInfEq";
-        public const string Func_TernSupEq = "Func_TernSupEq";
-        public const string Func_TernOp = "Func_TernOp";
+        public const string Func_Int = "MATH_Int";
+        public const string Func_RandomInt = "MATH_RandomInt";
+        public const string Func_Real = "MATH_Real";
+        public const string Func_Sinus = "MATH_Sinus";
+        public const string Func_Cosinus = "MATH_Cosinus";
+        public const string Func_Square = "MATH_Square";
+        public const string Func_SquareRoot = "MATH_SquareRoot";
+        public const string Func_RandomReal = "MATH_RandomReal";
+        public const string Func_MinimumReal = "MATH_MinimumReal";
+        public const string Func_MaximumReal = "MATH_MaximumReal";
+        public const string Func_DegreeToRadian = "MATH_DegreeToRadian";
+        public const string Func_RadianToDegree = "MATH_RadianToDegree";
+        public const string Func_AbsoluteValue = "MATH_AbsoluteValue";
+        public const string Func_LimitRealInRange = "MATH_LimitRealInRange";
+        public const string Func_Sign = "MATH_Sign";
+        public const string Func_Cube = "MATH_Cube";
+        public const string Func_Modulo = "MATH_Modulo";
+        public const string Func_TernInf = "MATH_TernInf";
+        public const string Func_TernSup = "MATH_TernSup";
+        public const string Func_TernEq = "MATH_TernEq";
+        public const string Func_TernInfEq = "MATH_TernInfEq";
+        public const string Func_TernSupEq = "MATH_TernSupEq";
+        public const string Func_TernOp = "MATH_TernOp";
     }
 }

@@ -10,9 +10,11 @@ namespace OpenSpaceCodeGen.AITypes {
         public string[] FunctionTable;
         public string[] ProcedureTable;
         public string[] ConditionTable;
+        public DsgVarType[] DsgVarTypeTable;
         public string[] FieldTable;
         public string[] MetaActionTable;
         public NodeType[] NodeTypes;
+        public Dictionary<EnumKeyword, DsgVarType> ExportedKeywords;
 
         public NodeType GetNodeType(byte functionType) {
             if (functionType < NodeTypes.Length) return NodeTypes[functionType];
@@ -28,6 +30,7 @@ namespace OpenSpaceCodeGen.AITypes {
             FunctionTable = original.FunctionTable;
             ProcedureTable = original.ProcedureTable;
             ConditionTable = original.ConditionTable;
+            DsgVarTypeTable = original.DsgVarTypeTable;
             FieldTable = original.FieldTable;
             MetaActionTable = original.MetaActionTable;
             NodeTypes = original.NodeTypes;

@@ -1,6 +1,10 @@
-﻿using OpenSpaceCodeGen.Nodes.Generic;
+﻿using System.Collections.Generic;
+using OpenSpaceCodeGen.Nodes.Generic;
+using OpenSpaceCodeGen.Translation;
 
-namespace OpenSpaceCodeGen.Nodes {
-    public class NodeButton : BasicNode {
-    }
+namespace OpenSpaceCodeGen.Nodes
+{
+   public class NodeButton : ReferenceNode
+   {
+   }
 }

@@ -3,8 +3,7 @@ using OpenSpaceCodeGen.Translation;
 
 namespace OpenSpaceCodeGen.Nodes {
     public class NodeMetaAction : Node {
-
-        protected override NodeTranslator GetTranslator(CodeGenerator gen)
+        public override NodeTranslator GetTranslator(CodeGenerator gen)
         {
             return gen.Translation.MetaActionTranslator(gen, this);
         }

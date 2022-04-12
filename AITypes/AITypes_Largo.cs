@@ -1116,6 +1116,60 @@
             },
             #endregion
 
+            #region DsgVar Types
+            DsgVarTypeTable = new DsgVarType[] {
+                DsgVarType.Boolean,
+                DsgVarType.Byte,
+                DsgVarType.UByte, // Unsigned
+                DsgVarType.Short,
+                DsgVarType.UShort, // Unsigned
+                DsgVarType.Int,
+                DsgVarType.UInt, // Unsigned
+                DsgVarType.Float,
+                DsgVarType.WayPoint,
+                DsgVarType.Perso,
+                DsgVarType.List, // 10
+                DsgVarType.Vector,
+                DsgVarType.Comport,
+                DsgVarType.Action,
+                DsgVarType.Text,
+                /*DsgVarInfoEntry.DsgVarType.GameMaterial,
+                DsgVarInfoEntry.DsgVarType.Caps, // Capabilities
+                DsgVarInfoEntry.DsgVarType.Graph,
+                DsgVarInfoEntry.DsgVarType.PersoArray,
+                DsgVarInfoEntry.DsgVarType.VectorArray,
+                DsgVarInfoEntry.DsgVarType.FloatArray,
+                DsgVarInfoEntry.DsgVarType.IntegerArray,
+                DsgVarInfoEntry.DsgVarType.WayPointArray,
+                DsgVarInfoEntry.DsgVarType.TextArray,
+                DsgVarInfoEntry.DsgVarType.SuperObject // input on iOS
+                */
+                DsgVarType.Light,
+                DsgVarType.GameMaterial,
+                DsgVarType.SoundEvent,
+                DsgVarType.None,
+                DsgVarType.WayPointArray,
+                DsgVarType.PersoArray, // 20
+                DsgVarType.VectorArray,
+                DsgVarType.FloatArray,
+                DsgVarType.IntegerArray,
+                DsgVarType.None,
+                DsgVarType.TextArray, // 25
+                DsgVarType.None,
+                DsgVarType.None,
+                DsgVarType.None,
+                DsgVarType.GraphArray,
+                DsgVarType.None, // 30
+                DsgVarType.SuperObject,
+                DsgVarType.None,
+                DsgVarType.ActionArray,
+                DsgVarType.None,
+                DsgVarType.None,
+                DsgVarType.ObjectList, // 36
+            },
+            #endregion
+
+
             #region Node types
             NodeTypes = new NodeType[] {
                 NodeType.KeyWord, // 0

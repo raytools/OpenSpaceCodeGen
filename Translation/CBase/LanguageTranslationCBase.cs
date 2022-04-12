@@ -51,6 +51,13 @@ namespace OpenSpaceCodeGen.Translation.CBase
         public override NodeTranslator ProcedureTranslator(CodeGenerator gen, NodeProcedure procedureNode) =>
             NodeTranslator.Sequence(procedureNode.ToString(gen)+"(",TranslateAction.VisitChildren(", "),");", TranslateAction.NextLine);
 
+        public override NodeTranslator SubroutineTranslator(CodeGenerator gen, NodeSubRoutine node) => NodeTranslator.Sequence(node.ToString(gen)+"();", TranslateAction.NextLine);
+
+        public override NodeTranslator ReferenceTranslator(CodeGenerator gen, ReferenceNode node) =>
+            NodeTranslator.Sequence(gen.ReferenceResolver.ResolveFunc.Invoke(node));
+
+        public override string StringQuoteCharacter => "\"";
+
         public abstract string IfDefSyntax { get; }
         public abstract string IfNotDefSyntax { get; }
         public abstract string EndIfDefSyntax { get; }

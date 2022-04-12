@@ -5,8 +5,7 @@ using OpenSpaceCodeGen.Nodes;
 
 namespace OpenSpaceCodeGen.Translation {
     public class NodeTranslator {
-
-        private readonly TranslateAction[] Actions;
+        internal readonly TranslateAction[] Actions;
 
         public static NodeTranslator RawTranslator(Node node, CodeGenerator gen)
         {

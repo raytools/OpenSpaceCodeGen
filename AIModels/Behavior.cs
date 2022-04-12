@@ -28,18 +28,19 @@ namespace OpenSpaceCodeGen.AIModels {
             return new Behavior(Path.GetFileName(folder), scripts);
         }
 
-        public string Translate(GameConfig config, LanguageTranslation.TranslationMode mode)
+        public string Translate(GameConfig config, TranslationContext context,
+            LanguageTranslation.TranslationMode mode, AIModel model = null)
         {
             var concat = Concatenator.FromMode(mode);
 
-            return concat.ConcatenateScripts(this.Scripts.Select(s => s.Translate(config, mode)).ToArray(), Name);
+            return concat.ConcatenateScripts(this.Scripts.Select(s => s.Translate(config, context, mode, model)).ToArray(), Name);
         }
 
-        public string TranslateHTML(GameConfig config, LanguageTranslation.TranslationMode mode)
+        public string TranslateHTML(GameConfig config, TranslationContext context, LanguageTranslation.TranslationMode mode, AIModel model = null)
         {
             var concat = Concatenator.FromMode(mode);
 
-            return concat.ConcatenateScripts(this.Scripts.Select(s => s.TranslateHTML(config, mode)).ToArray(), Name);
+            return concat.ConcatenateScripts(this.Scripts.Select(s => s.TranslateHTML(config, context, mode)).ToArray(), Name);
         }
     }
 }

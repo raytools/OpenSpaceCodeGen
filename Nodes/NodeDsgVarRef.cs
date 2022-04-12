@@ -2,8 +2,7 @@
 
 namespace OpenSpaceCodeGen.Nodes {
     public class NodeDsgVarRef : Node {
-
-        protected override NodeTranslator GetTranslator(CodeGenerator gen)
+        public override NodeTranslator GetTranslator(CodeGenerator gen)
         {
             return NodeTranslator.Sequence("DsgVar_"+param);
         }

@@ -5,10 +5,10 @@ using System.Text;
 using OpenSpaceCodeGen.AIModels;
 
 namespace OpenSpaceCodeGen.Concatenators {
-    public class ConcatenatorRaw : Concatenator {
+    public class ConcatenatorCpaScript : Concatenator {
         public override string ConcatenateScripts(string[] scripts, string name)
         {
-            return string.Join(Environment.NewLine, scripts);
+            return $";{name}{Environment.NewLine}" + string.Join(Environment.NewLine, scripts);
         }
 
         public override string ConcatenateBehaviours(string[] behaviours)

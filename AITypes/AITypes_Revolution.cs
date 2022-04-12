@@ -1114,6 +1114,38 @@
             },
             #endregion
 
+            #region DsgVar Types
+            DsgVarTypeTable = new DsgVarType[] {
+                DsgVarType.Boolean,
+                DsgVarType.Byte,
+                DsgVarType.UByte, // Unsigned
+                DsgVarType.Short,
+                DsgVarType.UShort, // Unsigned
+                DsgVarType.Int,
+                DsgVarType.UInt, // Unsigned
+                DsgVarType.Float,
+                DsgVarType.WayPoint,
+                DsgVarType.Perso,
+                DsgVarType.List,
+                DsgVarType.Vector,
+                DsgVarType.Action,
+                DsgVarType.Caps,
+                DsgVarType.Text,
+                DsgVarType.SoundEvent,
+                DsgVarType.Light,
+                DsgVarType.GameMaterial,
+                DsgVarType.VisualMaterial,
+                DsgVarType.Graph,
+                DsgVarType.PersoArray,
+                DsgVarType.VectorArray,
+                DsgVarType.FloatArray,
+                DsgVarType.IntegerArray,
+                DsgVarType.WayPointArray,
+                DsgVarType.TextArray,
+                DsgVarType.SuperObject // input on iOS
+            },
+            #endregion
+
             #region Node types
             NodeTypes = new NodeType[] {
                 NodeType.KeyWord, // 0

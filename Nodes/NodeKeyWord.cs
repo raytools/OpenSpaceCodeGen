@@ -4,8 +4,7 @@ using OpenSpaceCodeGen.Translation;
 
 namespace OpenSpaceCodeGen.Nodes {
     public class NodeKeyWord : Node {
-
-        protected override NodeTranslator GetTranslator(CodeGenerator gen)
+        public override NodeTranslator GetTranslator(CodeGenerator gen)
         {
             return gen.Translation.KeywordTranslator(gen, this);
         }

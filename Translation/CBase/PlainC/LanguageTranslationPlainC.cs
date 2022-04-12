@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using OpenSpaceCodeGen.AIModels;
 using OpenSpaceCodeGen.AITypes;
 using OpenSpaceCodeGen.Nodes;
 
@@ -19,6 +20,6 @@ namespace OpenSpaceCodeGen.Translation.CBase.PlainC {
 
         public override string FileExtension => "c";
         
-        public override void PostTranslationStep(AIType aiType, string outputDirectory) { }
+        public override void PostTranslationStep(AIType aiType, TranslationContext context, string outputDirectory) { }
     }
 }

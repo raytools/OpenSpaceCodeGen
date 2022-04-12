@@ -528,7 +528,7 @@ namespace OpenSpaceCodeGen.AITypes {
                 "SFX_IsWaterCirclesPossible",
                 "AGO_GetHandle",
                 "IsMcValid",
-                "FormatMc"
+                "FormatMc",
             },
             #endregion
 
@@ -1635,6 +1635,46 @@ namespace OpenSpaceCodeGen.AITypes {
                 "CAM_CinePosATgtBTurnTgtH",
                 "CAM_CinePosATgtBTurnPosV",
                 "CAM_CinePosATgtBTurnTgtV"
+            },
+            #endregion
+            
+            #region DsgVar Types
+            DsgVarTypeTable = new DsgVarType[] {
+                DsgVarType.Boolean,
+                DsgVarType.Byte,
+                DsgVarType.UByte, // Unsigned
+                DsgVarType.Short,
+                DsgVarType.UShort, // Unsigned
+                DsgVarType.Int,
+                DsgVarType.UInt, // Unsigned
+                DsgVarType.Float,
+                DsgVarType.Vector,
+                DsgVarType.List,
+                DsgVarType.Comport,
+                DsgVarType.Action,
+                DsgVarType.Caps,
+                DsgVarType.Input,
+                DsgVarType.SoundEvent,
+                DsgVarType.Light,
+                DsgVarType.GameMaterial,
+                DsgVarType.VisualMaterial,
+                DsgVarType.Perso,
+                DsgVarType.WayPoint,
+                DsgVarType.Graph,
+                DsgVarType.Text,
+                DsgVarType.SuperObject,
+                DsgVarType.SOLinks,
+                DsgVarType.IntegerArray,
+                DsgVarType.FloatArray,
+                DsgVarType.VectorArray,
+                DsgVarType.PersoArray,
+                DsgVarType.WayPointArray,
+                DsgVarType.GraphArray,
+                DsgVarType.TextArray,
+                DsgVarType.SuperObjectArray,
+                DsgVarType.SOLinksArray,
+                DsgVarType.SoundEventArray,
+                DsgVarType.VisualMatArray
             },
             #endregion
 

@@ -21,7 +21,11 @@ namespace OpenSpaceCodeGen.Translation
 
         public static TranslateAction String(string str) =>
             new TranslateAction((node,gen) => gen.Append(node, str), str);
-        public static TranslateAction NextLine =>
+
+        public static TranslateAction RemoveLastLine() =>
+           new TranslateAction((node, gen) => gen.RemoveLastLine(node), "RemoveLastLine");
+
+      public static TranslateAction NextLine =>
             new TranslateAction((node,gen) => gen.NextLine(), "NextLine");
         public static TranslateAction VisitChild(int index) =>
             new TranslateAction((node, gen) => node.Children[index].Visit(gen), $"VisitChild({index})");

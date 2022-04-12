@@ -50,6 +50,39 @@
             },
             #endregion
 
+            #region DsgVar Types
+            DsgVarTypeTable = new DsgVarType[] {
+                DsgVarType.Boolean,
+                DsgVarType.Byte,
+                DsgVarType.UByte, // Unsigned
+                DsgVarType.Short,
+                DsgVarType.UShort, // Unsigned
+                DsgVarType.Int,
+                DsgVarType.UInt, // Unsigned
+                DsgVarType.Float,
+                DsgVarType.WayPoint,
+                DsgVarType.Way,
+                DsgVarType.Perso,
+                DsgVarType.List,
+                DsgVarType.Vector,
+                DsgVarType.Comport,
+                DsgVarType.Action,
+                DsgVarType.Text,
+                DsgVarType.GameMaterial,
+                DsgVarType.Caps,
+                DsgVarType.Graph,
+                DsgVarType.PersoArray,
+                DsgVarType.VectorArray,
+                DsgVarType.FloatArray,
+                DsgVarType.IntegerArray,
+                DsgVarType.WayPointArray,
+                DsgVarType.TextArray,
+                DsgVarType.ActionArray,
+                DsgVarType.None
+            },
+            #endregion
+
+
             #region Keywords
             KeywordTable = new EnumKeyword[] {
                 EnumKeyword.If,

@@ -49,7 +49,7 @@ namespace OpenSpaceCodeGen.Translation.CBase {
                 case EnumKeyword.IfNot16:
                 case EnumKeyword.IfNot32:
                 case EnumKeyword.IfNot64:
-                    randomizer = int.Parse(keyword.ToString().Substring(2));
+                    randomizer = int.Parse(keyword.ToString().Substring(5));
                     return NodeTranslator.Sequence($"if (globalRandomizer%{randomizer}==0 && !(","))");
                 case EnumKeyword.IfDebug:
                     return NodeTranslator.Sequence($"{translation.IfDefSyntax}DEBUG",TranslateAction.NextLine,
