@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "NodeScriptToBinary": {
+      "commandName": "Project",
+      "commandLineArgs": "\"C:\\Data\\Misc\\RaymanStuff\\R4DS_ORIGINAL\\Rayman Raving Rabbids DS SOURCE (R4DS)\\R4DS\\03_Install\\02_RM4DS\\Rayman4DS\\Rayman_X\\cpa\\exe\\main\\GAMEDATA\\World\\Levels\\_Common\\Families\\rayman\\YLT_RaymanModel\\YLT_RaymanModel.eee\""
+    }
+  }
+}
