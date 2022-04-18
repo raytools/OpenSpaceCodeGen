@@ -1,8 +1,0 @@
-{
-  "profiles": {
-    "OpenSpaceCodeGen": {
-      "commandName": "Project",
-      "commandLineArgs": "\"C:\\Data\\RaymapData\\EXPORT\\R2_PC\\RawAIModels\" --game R2PC --mode CpaScript --outputdir \"C:\\Data\\RaymapData\\EXPORT\\R2_PC\\TranslatedRawModels\""
-    }
-  }
-}

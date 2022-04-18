@@ -1,0 +1,16 @@
+{
+  "profiles": {
+    "OpenSpaceCodeGen": {
+      "commandName": "Project",
+      "commandLineArgs": "\"C:\\Data\\RaymapData\\EXPORT\\R2_PC\\RawAIModels\" --game R2PC --mode CpaScript --outputdir \"C:\\Data\\RaymapData\\EXPORT\\R2_PC\\TranslatedRawModels\""
+    },
+    "OpenSpaceCodeGen NodeScriptToBinary": {
+      "commandName": "Project",
+      "commandLineArgs": "\"C:\\Data\\Misc\\RaymanStuff\\R4DS_ORIGINAL\\Rayman Raving Rabbids DS SOURCE (R4DS)\\R4DS\\03_Install\\02_RM4DS\\Rayman4DS\\Rayman_X\\cpa\\exe\\main\\GAMEDATA\\World\\Levels\\_Common\\Families\\rayman\\YLT_RaymanModel\" --outputdir \"output\\YLT_RaymanModel\" --game R2PC --convert-node-script true --use-dsg-var-names true"
+    },
+    "OpenSpaceCodeGen Recover 98 Scripts": {
+      "commandName": "Project",
+      "commandLineArgs": "\"C:\\Data\\Dev\\OpenSpaceCodeGen\\OpenSpaceCodeGen\\bin\\Debug\\netcoreapp3.1\\output\" --game R2PC --mode CpaScript --outputdir \"C:\\Data\\Dev\\OpenSpaceCodeGen\\OpenSpaceCodeGen\\bin\\Debug\\netcoreapp3.1\\converted98scripts\" --use-dsg-var-names true"
+    }
+  }
+}
